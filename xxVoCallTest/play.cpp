@@ -43,7 +43,7 @@ int audioPrint(const AVFrame* frame){
 }
 void save_pcm_data(const AVFrame* frame) {
     // 打开 PCM 文件以追加方式写入
-    FILE* pcmFile = fopen("D:/videos/output.pcm", "ab");  // "ab" 以二进制方式打开文件并追加
+    FILE* pcmFile = fopen("D:/videos/output2.pcm", "ab");  // "ab" 以二进制方式打开文件并追加
     if (!pcmFile) {
         perror("Failed to open file");
         return;
@@ -277,9 +277,9 @@ int main(int argc, char** argv) {
     }
 
     const char* filename = argv[1];
-    // decode_wav_to_pcm(filename);
+    decode_wav_to_pcm(filename);
     printf("Playing audio from file: %s\n", filename);
-    playAudioFromFile(filename);
+    // playAudioFromFile(filename);
     return 0;
 }
 

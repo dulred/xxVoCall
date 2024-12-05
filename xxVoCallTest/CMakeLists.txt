@@ -13,8 +13,10 @@ add_executable(xxVoCallTest main.cpp)
 
 add_executable(play play.cpp)
 add_executable(collect collect.cpp)
+add_executable(audio_mix audio_mix.cpp)
 
 target_link_libraries(xxVoCallTest xxVoCall OpenAL32)
 
-target_link_libraries(collect  OpenAL32)
+target_link_libraries(collect OpenAL32)
 target_link_libraries(play xxVoCall OpenAL32 boost_locale-mgw11-mt-sd-x64-1_86 avcodec avdevice avformat avutil swresample swscale)
+

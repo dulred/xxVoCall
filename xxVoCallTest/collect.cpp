@@ -51,7 +51,7 @@ void playPCMDataOpenAL(const unsigned char* data, unsigned int numFrames) {
     alDeleteBuffers(1, &buffer);
 }
 
-// 初始化 WASAPI 进行环回捕获
+// 初始化 WASAPI 进行环回捕获 (采集桌面音频)
 void initWASAPICapture() {
     // 获取音频设备管理接口
     CoInitialize(nullptr);
