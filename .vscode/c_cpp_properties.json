@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:\\dulred\\dev\\3rdlibs\\done\\OpenAL1.1\\include",
+                "D:\\dulred\\dev\\3rdlibs\\done\\boost_1_86_0\\include\\boost-1_86",
+                "D:\\dulred\\dev\\3rdlibs\\done\\ffmpeg-n4.4.2-95-ga8f16d4eb4-win64-gpl-shared-4.4\\include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.22621.0",
+            "compilerPath": "D:/dulred/dev/software/Qt6.5.3/Tools/mingw1120_64/bin/g++.exe",
+            "cStandard": "c17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
