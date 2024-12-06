@@ -13,7 +13,7 @@ const int NUM_CHANNELS = 2;
 const int BITS_PER_SAMPLE = 32;
 
 // 打开 PCM 文件进行写入
-std::ofstream outputPCM("D:/videos/output_audio.pcm", std::ios::binary);
+std::ofstream outputPCM("D:/videos/output_desktop.pcm", std::ios::binary);
 
 // 保存 PCM 数据到文件
 void savePCMData(const unsigned char* data, unsigned int numFrames, int bytesPerSample) {

@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
-
+// ffplay -ar 48000 -ac 2 -f s16le -i mixed_audio.pcm
 // 读取 PCM 文件的数据到 vector
 std::vector<int16_t> readPCMData(const std::string& fileName) {
     std::ifstream file(fileName, std::ios::binary);
@@ -28,11 +28,18 @@ void writePCMData(const std::string& fileName, const std::vector<int16_t>& data)
 
 // 混合两个 PCM 数据流
 std::vector<int16_t> mixPCMData(const std::vector<int16_t>& data1, const std::vector<int16_t>& data2) {
-    size_t minSize = std::min(data1.size(), data2.size());
-    std::vector<int16_t> mixedData(minSize);
+    // 选择较大的长度，填充较短的数组
+    size_t maxSize = std::max(data1.size(), data2.size());
+    std::vector<int16_t> mixedData(maxSize);
 
-    for (size_t i = 0; i < minSize; ++i) {
-        int sample = data1[i] + data2[i];
+    // 遍历两个数据流，并进行混合
+    for (size_t i = 0; i < maxSize; ++i) {
+        // 获取当前数据流的值，超出范围部分默认为 0
+        int16_t sample1 = (i < data1.size()) ? data1[i] : 0;
+        int16_t sample2 = (i < data2.size()) ? data2[i] : 0;
+
+        // 混合音频数据
+        int sample = sample1 + sample2;
 
         // 剪裁到 int16_t 的范围，避免溢出
         if (sample > 32767) {
@@ -46,7 +53,6 @@ std::vector<int16_t> mixPCMData(const std::vector<int16_t>& data1, const std::ve
 
     return mixedData;
 }
-
 int main() {
     // 读取两个 PCM 文件
     std::vector<int16_t> pcmData1 = readPCMData("D:/videos/output.pcm");

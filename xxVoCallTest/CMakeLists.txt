@@ -10,13 +10,17 @@ link_directories(D:/dulred/dev/3rdlibs/done/boost_1_86_0/lib)
 link_directories(D:/dulred/dev/3rdlibs/done/ffmpeg-n4.4.2-95-ga8f16d4eb4-win64-gpl-shared-4.4/lib)
 
 add_executable(xxVoCallTest main.cpp)
-
 add_executable(play play.cpp)
-add_executable(collect collect.cpp)
-add_executable(audio_mix audio_mix.cpp)
+add_executable(collect_desktop collect_desktop.cpp)
+add_executable(collect_microphone collect_microphone.cpp)
+add_executable(audio_mix_s16le audio_mix_s16le.cpp)
+add_executable(audio_mix_f32le audio_mix_f32le.cpp)
+add_executable(udp_client udp_client.cpp)
+add_executable(udp_server udp_server.cpp)
 
 target_link_libraries(xxVoCallTest xxVoCall OpenAL32)
-
-target_link_libraries(collect OpenAL32)
+target_link_libraries(collect_desktop OpenAL32)
+target_link_libraries(collect_microphone OpenAL32)
 target_link_libraries(play xxVoCall OpenAL32 boost_locale-mgw11-mt-sd-x64-1_86 avcodec avdevice avformat avutil swresample swscale)
-
+target_link_libraries(udp_client ws2_32 boost_locale-mgw11-mt-sd-x64-1_86 )
+target_link_libraries(udp_server ws2_32)
